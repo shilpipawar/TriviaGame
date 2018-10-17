@@ -1,0 +1,31 @@
+body{
+    background-image: url("../images/darkness.png");
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	line-height: 2;
+	color: #333;
+}
+h1 {
+
+    font-family:Death-Star, sans-serif;
+    color: white;
+    text-align: center;
+    font-size: 85px;
+    text-shadow: 7px 7px 7px black;
+
+}
+h2 {
+    font-family: aliens-and-cows, sans-serif;
+    text-decoration: underline;
+    font-size: 25px;
+    color: cadetblue;
+    font-weight: bold;
+    padding: 25px;
+    text-align: center;
+    border-block-end-width: 5px;
+}
+
+
+.start {
+	margin-top: 300px;
+}
