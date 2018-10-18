@@ -1,8 +1,8 @@
 body{
-    background-image: url("../images/darkness.png");
+    background-image: url(../images/BackgroundImage.jpg);
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 14px;
-	line-height: 2;
+	line-height: 25px;
 	color: #333;
 }
 h1 {
@@ -24,8 +24,38 @@ h2 {
     text-align: center;
     border-block-end-width: 5px;
 }
+ul.b {
+    list-style-type: square;
+}
+.contents
+{
+    clear: both;
+    position: fixed;
+    left:15%;
+    padding: 30px;
+    border-radius:3px solid #7777;
+    background-color:#fffF;
+    box-sizing: border-box; 
+	margin:20px;
+}
+.button1{
+    margin: 0 auto;
+}
+.wrapper
+{
+    width: 960px;
+    margin:0 auto 0 auto;
+    padding: 10px;
+}
 
-
-.start {
-	margin-top: 300px;
+.footer {
+    clear: both;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:  #666666;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
 }
