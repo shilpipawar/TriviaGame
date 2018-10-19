@@ -10,7 +10,7 @@ h1 {
     font-family:Death-Star, sans-serif;
     color: white;
     text-align: center;
-    font-size: 85px;
+    font-size: 65px;
     text-shadow: 7px 7px 7px black;
 
 }
@@ -30,7 +30,7 @@ ul.b {
 .contents
 {
     clear: both;
-    position: fixed;
+    position: relative;
     left:15%;
     padding: 30px;
     border-radius:3px solid #7777;
@@ -38,9 +38,7 @@ ul.b {
     box-sizing: border-box; 
 	margin:20px;
 }
-.button1{
-    margin: 0 auto;
-}
+
 .wrapper
 {
     width: 960px;
