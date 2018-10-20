@@ -1,6 +1,6 @@
 $(document).ready(function () {
     //Declare ojects for all Question and Ans
-    //////////Que Object Declaration/////////////////////////////////////////////////
+    ////////Que Object Declaration/////////////////////////////////////////////////
     var Que1 = {
         question: "Highest mountain of world 'Mount Everest' is located in",
         answers: {
@@ -47,11 +47,12 @@ $(document).ready(function () {
 
     var Que5 = {
         question: "Sea which separates Africa from Asia is",
-        answers: { 
-            A: "Baltic Sea", 
+        answers: {
+            A: "Baltic Sea",
             B: "Black Sea",
-            C: "Mediterranean Sea", 
-            D: "Red Sea" },
+            C: "Mediterranean Sea",
+            D: "Red Sea"
+        },
         correctAnswer: "D"
     };
 
@@ -96,7 +97,7 @@ $(document).ready(function () {
             C: "Southern Lights",
             D: "Northern Lights"
         },
-        correctAnswer: "C"
+        correctAnswer: "2"
     };
 
     var Que10 = {
@@ -132,12 +133,35 @@ $(document).ready(function () {
         questionPlaceholder.append(output);
         //Ans
         for (i = 0; i < opt.length; i++) {
-            var radioBtn = $('<input type="radio" name="radio-choice-1" class ="radioType">' + opt[i] + '</input>' + '<br>');
-            radioBtn.appendTo('#target');
+            // var radioBtn = $('<input type="radio" name="radio-choice-1" class ="radioType">' + opt[i] + '</input>' + '<br>');        
+            // radioBtn.appendTo('#target');
+           // $('<li><input type="radio" value=' + i + ' name="dynradio" />' + opt[i] + '</li>').appendTo('#target');
+           var radioBtn = $('<input type="radio" name="option" value="' + i + '" id="option' + i + '"><label for="option' + i + '">' +
+           opt[i]  + '</label></div><br/>');
+           $("#option0").prop('checked', true);
+           radioBtn.appendTo('#target');
         };
+
+        var value = $("input[type='radio']:checked").val();
+        console.log(value);
+        if (value == obj.correctAnswer) {
+            correctAnswers++;
+            console.log(obj.correctAnswer);
+            //console.log($("input[name=option]:checked").val());
+          };
+        //matchAnwser(obj. value);
 
     }
 
+    ///////////////////////////
+    function matchAnwser(obj, value){
+        if (value == obj.correctAnswer) {
+            correctAnswers++;
+            //console.log(obj.correctAnswer);
+            //console.log($("input[name=option]:checked").val());
+          };
+    }
+    ///////////////////////////
     function LoadQuizQue(array) {
         console.log("LoadQuizQue Enter:")
         for (var j = 0; j < array.length; j++) {
@@ -146,34 +170,80 @@ $(document).ready(function () {
     }
 
     //Timer
+    //Timer//////////////////////////////////
+    var tim;       
+        var min = '${sessionScope.min}';
+        var sec = '${sessionScope.sec}';
+        var f = new Date();
+
+        function customSubmit(someValue){  
+        	 document.questionForm.minute.value = min;   
+        	 document.questionForm.second.value = sec; 
+        	 document.questionForm.submit();  
+        	 }  
+
+        function examTimer() {
+            if (parseInt(sec) >0) {
+
+			    document.getElementById("showTime").innerHTML = "Time Remaining :"+min+" Minutes ," + sec+" Seconds";
+                sec = parseInt(sec) - 1;                
+                tim = setTimeout("examTimer()", 1000);
+            }
+            else {
+
+			    if (parseInt(min)==0 && parseInt(sec)==0){
+			    	document.getElementById("showTime").innerHTML = "Time Remaining :"+min+" Minutes ," + sec+" Seconds";
+				     alert("Time Up");
+				     document.questionForm.minute.value=0;
+				     document.questionForm.second.value=0;
+				     document.questionForm.submit();
+			     }
+
+                if (parseInt(sec) == 0) {				
+				    document.getElementById("showTime").innerHTML = "Time Remaining :"+min+" Minutes ," + sec+" Seconds";					
+                    min = parseInt(min) - 1;
+					sec=59;
+                    tim = setTimeout("examTimer()", 1000);
+                }
+
+            }
+        }
+   //////////////////////////////////////////
+
     var id = 0;
-    window.setInterval(function(){
+    window.setInterval(function () {
         /// call your function here
         ClearALl();
-        $('.Timer').append("Timer: " + 45);
-       var txt = "Question " + id + 1;
-       $('.Question').append(txt);
-        if(id < questionArray.length){
+        examTimer();
+        //$('.quiz-time-left').innerHTML = 'Time Left: ' + 10 + 'Minutes' + 00 + ' seconds';
+        // $('.Timer').append("Timer: " + 45);
+        var number = parseInt(id) + 1;
+        var txt = "Question " + number;
+        $('.Question').append(txt);
+        if (id < questionArray.length) {
             CreateQuizPage(questionArray[id]);
             id++;
-        }else{
+        } else {
             //Restart the quiz
-        
             var BtnRestart = $('<a class="btn btn-primary btn-lg restartbtn" href="index.html" role="button">Restart</a>');
             BtnRestart.appendTo('.CorrectAnw');
         }
-        
- }, 500);
 
- function ClearALl(){
-    $('#target').empty();
-    $('.title').empty();
-    $('.restartbtn').empty();
-    $('.Timer').empty();
-    $('.Question').empty();
-    $('.CorrectAnw').empty();
- }
+    }, 5000);
+
+    function ClearALl() {
+        $('#target').empty();
+        $('.title').empty();
+        $('.restartbtn').empty();
+        $('.Timer').empty();
+        $('.Question').empty();
+        $('.CorrectAnw').empty();
+    }
     //$("input[type='radio']").attr("checked",true).checkboxradio("refresh");
+    function QuizTimeOut() {
+        alert("Times Up!!!");
+    }
+
 
     /////////////////////////////////////Call Function on Page Load/////////////////////////////////////////////////////////////////////////////////
 
@@ -186,4 +256,7 @@ $(document).ready(function () {
     //CreateQuizPage(Que10);//Test
     //LoadQuizQue(questionArray);
 
-});
+
+
+
+});//document.ready end

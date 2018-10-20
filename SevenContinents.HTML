@@ -15,8 +15,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script src="assets/javascript/quize.js"> </script>
-    <script src="assets/javascript/Newquize.js"> </script>
+    <script src="assets/javascript/SevenContinents.js"> </script>
+
 
 </head>
 
@@ -33,25 +33,18 @@
         <div class="container">
             <div class="row">
                 <section class="display">
-                    <div id="quiz-time-left"></div>
-                    <div id="showTime"></div>
-                    <div class="Question"></div>
-                    <div data-role="fieldcontain">
-                        <fieldset data-role="controlgroup">
-                                <div id="target">
-                                    </div>
-                        </fieldset>
-                    </div>
-                    <div class="CorrectAnw"></div>
+                    <div id="timeleft"></div>
+                    <div id="questionblock"></div>
+                    <div id="answerblock"></div>
+                    <div id="photoblock"></div>
+                    <!-- <button class="btn btn-success" id="start">Timer Start</button><br> -->
+                    <button class="btn btn-primary btn-lg" id="reset">Restart</button>
                 </section>
             </div>
-
         </div>
-    </div>
-    <div class="footer">
-        Copyright &#169;
-    </div>
-
+        <div class="footer">
+            Copyright &#169;
+        </div>
 </body>
 
 </html>
