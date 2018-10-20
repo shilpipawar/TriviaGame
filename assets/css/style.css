@@ -39,6 +39,20 @@ ul.b {
 	margin:20px;
 }
 
+.display
+{
+    position: fixed;
+    left:15%;
+    padding: 30px;
+    border-radius:3px solid #7777;
+    background-color:black;
+    color: azure;
+    box-sizing: border-box; 
+    margin:20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    line-height: 30px;
+
+}
 .wrapper
 {
     width: 960px;
