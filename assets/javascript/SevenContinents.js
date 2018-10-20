@@ -93,8 +93,9 @@ $(document).ready(function () {
             timeoutcount++;
             stop();
             $("#answerblock").html("<p>Time is up! The correct answer is: " + pick.choice[pick.answer]  +"</p>");
-            var SadEmoji = "assets/images/SadEmoji.PNG";
-            $("#photoblock").html("<img src ="+SadEmoji + ">");
+            //Put Sad Image
+            var sadEmoji = "assets/images/SadEmoji.PNG";
+            $("#photoblock").html("<img src ="+sadEmoji + ">");
             hidepicture();
         }	
     }
