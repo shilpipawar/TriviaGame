@@ -37,6 +37,16 @@ $(document).ready(function () {
             answer: 2
         }, 
         {
+            question: "Continent which has no active volcanic regions is?", 
+            choice: ["North America","Europe","Australia","Africa" ],
+            answer: 2
+        }, 
+        {
+            question: "Phenomenon in which glow is observed in sky at night called Aurora Australia is also classified as?", 
+            choice: ["Western Lights","Eastern Lights","Southern Lights","Northern Lights" ],
+            answer: 2
+        }, 
+        {
             question: "Largest suspension bridge 'Golden Gate Bridge' is located in North America continent at?", 
             choice: ["San Francisco","Panama","Cuba","Venice"],
             answer: 0
@@ -67,15 +77,7 @@ $(document).ready(function () {
 }
     }
     $("#reset").hide();
-    //click start button to start quiz
-    // $("#start").on("click", function () {
-    //         $("#start").hide();
-    //         CreateQuizPage();
-    //         runTimer();
-    //         for(var i = 0; i < options.length; i++) {
-    //     holder.push(options[i]);
-    // }
-    //     })
+
     //timer function start
     function runTimer(){
         if (!timeRunning) {
@@ -94,7 +96,7 @@ $(document).ready(function () {
             stop();
             $("#answerblock").html("<p>Time is up! The correct answer is: " + pick.choice[pick.answer]  +"</p>");
             //Put Sad Image
-            var sadEmoji = "assets/images/SadEmoji.PNG";
+            var sadEmoji = "assets/images/SadEmoji.gif";
             $("#photoblock").html("<img src ="+sadEmoji + ">");
             hidepicture();
         }	
@@ -141,7 +143,7 @@ $(document).ready(function () {
             stop();
             incorrectAns++;
             userGuess="";
-            var sadEmoji = "assets/images/SadEmoji.PNG";
+            var sadEmoji = "assets/images/SadEmoji.gif";
             $("#answerblock").html("<p>Wrong! The correct answer is: " + pick.choice[pick.answer] + "</p>");
             $("#photoblock").html("<img src ="+sadEmoji + ">");
             hidepicture();
@@ -157,7 +159,7 @@ $(document).ready(function () {
     
         var hidpic = setTimeout(function() {
             $("#answerblock").empty();
-            timer= 20;
+            timer= 25;
     
         //run the score screen if all questions answered
         if ((incorrectAns + correctAns + timeoutcount) === qCount) {
@@ -166,10 +168,10 @@ $(document).ready(function () {
             $("#questionblock").html("<h3>Quiz Over!  Your score : </h3>");
             var totalPoints = parseInt(correctAns) * 10;
             var pointloose = parseInt(incorrectAns) * 10;
-            timeoutcount = parseInt(timeoutcount) * 10;
-            $("#answerblock").append("<h4> Correct: " + correctAns + "</h4>" );
-            $("#answerblock").append("<h4> Incorrect: " + incorrectAns + "</h4>" );
-            $("#answerblock").append("<h4> Unanswered: " + timeoutcount + "</h4>" );
+            timeoutcount = parseInt(timeoutcount);
+            $("#answerblock").append("<h4> Correct: " + totalPoints + "</h4>" );
+            $("#answerblock").append("<h4> Incorrect: " + pointloose + "</h4>" );
+            $("#answerblock").append("<h4> Unanswered Questions: " + timeoutcount + "</h4>" );
             $("#photoblock").html("<img src ="+goodjob + ">");
             $("#reset").show();
             correctAns = 0;
