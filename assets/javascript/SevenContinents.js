@@ -141,9 +141,9 @@ $(document).ready(function () {
             stop();
             incorrectAns++;
             userGuess="";
-            var SadEmoji = "assets/images/SadEmoji.PNG";
+            var sadEmoji = "assets/images/SadEmoji.PNG";
             $("#answerblock").html("<p>Wrong! The correct answer is: " + pick.choice[pick.answer] + "</p>");
-            $("#photoblock").html("<img src ="+SadEmoji + ">");
+            $("#photoblock").html("<img src ="+sadEmoji + ">");
             hidepicture();
         }
     })
